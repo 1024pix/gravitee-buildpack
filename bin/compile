@@ -25,7 +25,9 @@ unzip -q "$GRAVITEE_ZIP" -d "$GRAVITEE_DOWNLOADS"
 echo "done"
 
 echo -n "-----> Init gravitee gateway folders..."
-mv "$GRAVITEE_DOWNLOADS/$GRAVITEE_MODULE-$GRAVITEE_VERSION"/* "$1"
+# Get the path of the latest created folder (created by unzip)
+EXTRACTED_FOLDER=$(ls -td -- ${GRAVITEE_DOWNLOADS}/*/ | head -n 1)
+mv ${EXTRACTED_FOLDER}* $1
 echo "done"
 
 echo -n "-----> Deleting downloads directory..."
