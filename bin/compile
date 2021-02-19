@@ -2,6 +2,7 @@
 
 set -eu
 
+
 GRAVITEE_VERSION=$(cat ./bin/version)
 GRAVITEE_DOWNLOADS="$1/downloads"
 GRAVITEE_ZIP="$GRAVITEE_DOWNLOADS/$GRAVITEE_MODULE-$GRAVITEE_VERSION.zip"
@@ -30,6 +31,9 @@ EXTRACTED_FOLDER=$(ls -td -- ${GRAVITEE_DOWNLOADS}/*/ | head -n 1)
 mv ${EXTRACTED_FOLDER}* $1
 echo "done"
 
+mv ./gravitee.yml ./config/gravitee.yml
+echo "Content of ./config/gravitee.yml"
+cat ./config/gravitee.yml
 echo -n "-----> Deleting downloads directory..."
 rm -rf "$GRAVITEE_DOWNLOADS"
 echo "done"
