@@ -5,14 +5,14 @@ set -eu
 GRAVITEE_VERSION=$(cat ./bin/version)
 GRAVITEE_DOWNLOADS="$1/downloads"
 
-GRAVITEE_MODULE_TO_DEPLOY=${GRAVITEE_MODULE_TO_DEPLOY:-}
-if [[ -z "${GRAVITEE_MODULE_TO_DEPLOY}" ]]; then
-  echo -n "-----> Veuillez saisir le module Gravitee à déployer en définissant la variable d'env GRAVITEE_MODULE_TO_DEPLOY... "
+GRAVITEE_MODULE=${GRAVITEE_MODULE:-}
+if [[ -z "${GRAVITEE_MODULE}" ]]; then
+  echo -n "-----> Veuillez saisir le module Gravitee à déployer en définissant la variable d'env GRAVITEE_MODULE... "
   exit 1
 fi
 
-GRAVITEE_ZIP="${GRAVITEE_DOWNLOADS}/${GRAVITEE_MODULE_TO_DEPLOY}-${GRAVITEE_VERSION}.zip"
-GRAVITEE_URL="https://download.gravitee.io/graviteeio-apim/components/$GRAVITEE_MODULE_TO_DEPLOY/$GRAVITEE_MODULE_TO_DEPLOY-$GRAVITEE_VERSION.zip"
+GRAVITEE_ZIP="${GRAVITEE_DOWNLOADS}/${GRAVITEE_MODULE}-${GRAVITEE_VERSION}.zip"
+GRAVITEE_URL="https://download.gravitee.io/graviteeio-apim/components/$GRAVITEE_MODULE/$GRAVITEE_MODULE-$GRAVITEE_VERSION.zip"
 
 mkdir -p "$GRAVITEE_DOWNLOADS"
 
