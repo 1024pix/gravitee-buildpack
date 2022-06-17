@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "-- Setup portal-ui config --"
+echo -n "-- Setup gateway config --"
 
 DIST_FOLDER=${1:-}
 if [[ -z "${DIST_FOLDER}" ]]; then
